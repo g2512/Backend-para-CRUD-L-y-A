@@ -52,11 +52,12 @@ class Producto:
         db.commit()
         cursor.close()
 
-        #def delete(self):
-        #logica para hacer un DELETE en la BASE
-        pass
-        #logica para hacer un DELETE en la BASE
-         #        pass
+    def delete(self):
+        db = get_db()
+        cursor = db.cursor()
+        cursor.execute("DELETE FROM productos WHERE idproductos_lya = %s", (self.id_producto,))
+        db.commit()
+        cursor.close()   
 
 
     def serialize(self):
